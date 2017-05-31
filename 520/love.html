@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="关键词、关键字"><!-- -->
+  <meta name="Description" content="描述信息">
+  <title>520表白</title>
+
+ <!-- cs 层叠样式 --> 
+ <style type="text/css">
+	*{margin:0;padding:0;}
+	.top{
+		width:400px;
+		height:100px;
+		margin:60px auto;
+		font-size:30px;
+		font-family:"华文行楷";
+		color:#66ff33;
+		background:-webkit-linear-gradient(45deg,#663366,#ff6699,#663399,#ff6666,#ff9900,#cc3300);
+		}
+	.box{
+		width:310px;
+		height:310px;
+		background:#ff6633;
+		margin:auto;
+		perspective:800px;
+		}
+	.box .pic{position:relative;
+			  transform-style:preserve-3d;
+			  animation:play 10s linear infinite;
+			  }
+	.box ul li{list-style:none;
+				position:absolute;
+				top:0;
+				left:0;}
+
+	.keyframes play{
+		from{transform:rotateY(0deg);}
+		to{transform:rotateY(360deg);}
+	}
+	
+ </style>
+ </head>
+ <body>
+
+	  <!-- div -->
+	  <div class="top">
+		<marquee behavior=alternate>时光不老，我们不散</marquee>
+	  </div>
+
+	  <div class="box">
+		<div class="pic">
+			<ul>
+				<!-- 图片标签四要素:
+					src
+					height:
+					width:
+					alt:图片丢失时动作.
+				-->
+				<li><img src="images/1.jpg" height="" width="" alt="描述"></li>
+				<li><img src="images/2.png" height="" width="" alt="描述"></li>
+				<li><img src="images/3.png" height="" width="" alt="描述"></li>
+				<li><img src="images/4.png" height="" width="" alt="描述"></li>
+				<li><img src="images/5.png" height="" width="" alt="描述"></li>
+				<li><img src="images/6.png" height="" width="" alt="描述"></li>
+			</ul>
+		</div>
+	  </div>
+
+	  <script src="js/jquery/jquery=1.11.3.min.js">
+		$(".pic ul li").each("function(){
+			var deg = 360/$(".pic ul li").size();
+			$(this).css("transform:rotateY("+deg*i + "deg)");
+		});
+	  </script>
+ </body>
+</html>
