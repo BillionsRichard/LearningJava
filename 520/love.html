@@ -11,6 +11,9 @@
  <!-- cs 层叠样式 --> 
  <style type="text/css">
 	*{margin:0;padding:0;}
+	body{background:url("images/3.jpg");
+		background-size:cover
+		}
 	.top{
 		width:400px;
 		height:100px;
@@ -23,7 +26,6 @@
 	.box{
 		width:310px;
 		height:310px;
-		background:#ff6633;
 		margin:auto;
 		perspective:800px;
 		}
@@ -35,8 +37,15 @@
 				position:absolute;
 				top:0;
 				left:0;}
-
-	.keyframes play{
+	#text{width:500px;
+		height:200px;
+		
+		margin:auto;
+		font-size:24px;
+		fong-family:"方正喵呜体";
+	}			
+	/*定义一个关键帧*/
+	@keyframes play{
 		from{transform:rotateY(0deg);}
 		to{transform:rotateY(360deg);}
 	}
@@ -59,7 +68,7 @@
 					width:
 					alt:图片丢失时动作.
 				-->
-				<li><img src="images/1.jpg" height="" width="" alt="描述"></li>
+				<li><img src="images/1.png" height="" width="" alt="描述"></li>
 				<li><img src="images/2.png" height="" width="" alt="描述"></li>
 				<li><img src="images/3.png" height="" width="" alt="描述"></li>
 				<li><img src="images/4.png" height="" width="" alt="描述"></li>
@@ -68,12 +77,39 @@
 			</ul>
 		</div>
 	  </div>
-
-	  <script src="js/jquery/jquery=1.11.3.min.js">
-		$(".pic ul li").each("function(){
+	  <div id="text"></div>
+	  
+	  <embed src="audios/bgmusic.mp3" hidden=true>
+	  <script src="js/jquery/jquery-1.11.3.min.js"></script>
+	  <script src="js/jquery/jquery.snow.min.1.0.js"></script>
+	  
+	  <script>  
+		$(".pic ul li").each(function(i){
 			var deg = 360/$(".pic ul li").size();
-			$(this).css("transform:rotateY("+deg*i + "deg)");
+			$(this).css({"transform":"rotateY(" + deg*i + "deg)translateZ(216px)"});
+			$.fn.snow({
+			minSize:10,
+			maxSize:15,
+			newOn:500,
+			flakeColor:"#ffffff"
+			});
 		});
+		
+		var str = "                                                                能够遇见你是我最大的幸运，有了你，生活变得丰富多彩起来；有了你，世界变得如此迷人。"
+		
+		var i = 0;
+		window.onload = function typing(){
+			var mydiv = document.getElementById("text")
+			
+			mydiv.innerHTML += str.charAt(i);
+			i++;
+			console.log(i);
+			var id = setTimeout(typing, 100);
+			if(i == str.length)
+			{
+				clearTimeout(id);
+			}
+		}
 	  </script>
  </body>
 </html>
